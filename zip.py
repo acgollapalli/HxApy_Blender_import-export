@@ -9,13 +9,13 @@ def TS():
 
 # might want to switch to a glob at some point
 to_zip = [
-    "io_scene_hxa\\__init__.py",
-    "io_scene_hxa\\import_hxa_py.py",
-    "io_scene_hxa\\export_hxa_py.py",
-    "io_scene_hxa\\hxapy_util.py",
-    "io_scene_hxa\\hxapy_header.py",
-    "io_scene_hxa\\hxapy_read_write.py",
-    "io_scene_hxa\\hxapy_validate.py",
+    "io_scene_hxa/__init__.py",
+    "io_scene_hxa/import_hxa_py.py",
+    "io_scene_hxa/export_hxa_py.py",
+    "io_scene_hxa/hxapy_util.py",
+    "io_scene_hxa/hxapy_header.py",
+    "io_scene_hxa/hxapy_read_write.py",
+    "io_scene_hxa/hxapy_validate.py",
 ]
 
 

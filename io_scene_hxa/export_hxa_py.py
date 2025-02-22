@@ -364,38 +364,38 @@ def export_payload(context):
             )
 
     # ** creases
-    creases = [x.crease for x in me.edges]
-    edges = [list(e.vertices) for e in me.edges]
-    crease_tuples = []
-    for i in range(len(edges)):
-        crease_tuples.append((edges[i], creases[i]))
+    ## creases = me.edge_creases or []
+    ## edges = [list(e.vertices) for e in me.edges]
+    ## crease_tuples = []
+    ## for i in range(len(edges)):
+    ##     crease_tuples.append((edges[i], creases[i]))
 
-    crease_tuples = sorted(crease_tuples, key=lambda t: (t[0][0], t[0][1]))
+    ## crease_tuples = sorted(crease_tuples, key=lambda t: (t[0][0], t[0][1]))
 
-    log.debug(f"> {edges}")
-    # sorted_edges = sorted(edges, key = lambda x: (x[0], x[1]))
-    sorted_edges, sorted_creases = zip(*crease_tuples)
-    edge_verts = hxa_util.flatten_list(sorted_edges)
-    log.debug(f"Edge verts: {edge_verts}")
+    ## log.debug(f"> {edges}")
+    ## # sorted_edges = sorted(edges, key = lambda x: (x[0], x[1]))
+    ## sorted_edges, sorted_creases = zip(*crease_tuples)
+    ## edge_verts = hxa_util.flatten_list(sorted_edges)
+    ## log.debug(f"Edge verts: {edge_verts}")
 
-    # check for !=0 creases
-    creases_present = len([x != 0 for x in creases]) > 0
-    if creases_present:
-        meta_creases_data_entries = []
-        meta_creases_data_entries.append(
-            hxa_meta("", hxa.HXAMetaDataType.HXA_MDT_INT64, edge_verts)
-        )
-        meta_creases_data_entries.append(
-            hxa_meta("", hxa.HXAMetaDataType.HXA_MDT_DOUBLE, sorted_creases)
-        )
+    ## # check for !=0 creases
+    ## creases_present = len([x != 0 for x in creases]) > 0
+    ## if creases_present:
+    ##     meta_creases_data_entries = []
+    ##     meta_creases_data_entries.append(
+    ##         hxa_meta("", hxa.HXAMetaDataType.HXA_MDT_INT64, edge_verts)
+    ##     )
+    ##     meta_creases_data_entries.append(
+    ##         hxa_meta("", hxa.HXAMetaDataType.HXA_MDT_DOUBLE, sorted_creases)
+    ##     )
 
-        meta_data.append(
-            hxa_meta(
-                "meta creases",
-                hxa.HXAMetaDataType.HXA_MDT_META,
-                meta_creases_data_entries,
-            )
-        )
+    ##     meta_data.append(
+    ##         hxa_meta(
+    ##             "meta creases",
+    ##             hxa.HXAMetaDataType.HXA_MDT_META,
+    ##             meta_creases_data_entries,
+    ##         )
+    ##     )
 
     # ** custom props
     custom_props = list(ob_mesh.keys())
