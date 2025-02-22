@@ -277,7 +277,7 @@ def write_node(f, node):
 
 def write_hxa(f, hxa_dict):
     f.write(b"HxA\0")
-    write_u8(f, hxa_dict["version"])
+    write_u32(f, hxa_dict["version"])
     write_u32(f, len(hxa_dict["nodes"]))
 
     log.debug(f"HxA version: {hxa_dict['version']}")
